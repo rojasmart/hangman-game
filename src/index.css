@@ -8,10 +8,20 @@
   /* Neutral */
   --white: hsla(0, 0%, 100%, 1);
   --blue: hsla(222.74, 100%, 57.06%, 1);
+  --blue-transparent: hsla(207, 73%, 57.06%, 0.6);
   --dark-navy: hsla(250, 68.57%, 27.45%, 1);
 }
 
 body {
+  font-family: "Mouse Memoirs", sans-serif;
+  background: url("/public/images/background-desktop.svg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+button {
+  cursor: pointer;
   font-family: "Mouse Memoirs", sans-serif;
 }
 
