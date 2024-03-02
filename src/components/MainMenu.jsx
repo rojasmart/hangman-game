@@ -41,7 +41,9 @@ const MainMenu = () => {
                 top: "369px",
               }}
             >
-              <Image src={"/public/images/icon-play.svg"} />
+              <Link href="/game">
+                <Image src={"/public/images/icon-play.svg"} />
+              </Link>
             </Center>
             <Link href="/rules">
               <Button
