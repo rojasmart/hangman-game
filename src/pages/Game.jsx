@@ -1,12 +1,14 @@
-import { Card } from "@chakra-ui/react";
+import { Card, Stack } from "@chakra-ui/react";
 
 import { getGame } from "../services/game";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Game() {
+  const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-    getGame().then((data) => console.log(data));
+    getGame().then((data) => setCategories(data));
   }, []);
 
-  return <Card></Card>;
+  return <Stack spacing={8}></Stack>;
 }
