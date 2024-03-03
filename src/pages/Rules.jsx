@@ -20,6 +20,7 @@ export default function Rules() {
         <Container maxW="1100px" justifyContent={"center"} display={"flex"}>
           <Box
             alignItems={"center"}
+            display={"flex"}
             sx={{
               boxSizing: "border-box",
 
@@ -37,7 +38,7 @@ export default function Rules() {
               <Image
                 src={"/public/images/icon-back.svg"}
                 w={"50px"}
-                ml={"50px"}
+                ml={"25px"}
               />
             </Link>
           </Box>
