@@ -23,7 +23,6 @@ export default function Rules() {
             display={"flex"}
             sx={{
               boxSizing: "border-box",
-
               width: "94px",
               height: "94px",
               left: "0px",
@@ -47,6 +46,16 @@ export default function Rules() {
             textAlign={"center"}
             flex={"2"}
             fontFamily={"Mouse Memoirs"}
+            sx={{
+              letterSpacing: "0.05em",
+              background:
+                "linear-gradient(180deg, #67B6FF 16.42%, #FFFFFF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textFillColor: "transparent",
+              "-webkit-text-stroke": "5px #243041",
+            }}
           >
             How to play
           </Text>
