@@ -17,7 +17,7 @@ export default function Rules() {
   return (
     <>
       <HStack m={"10"}>
-        <Container maxW="1100px" justifyContent={"center"} display={"flex"}>
+        <Container maxW="1300px" justifyContent={"center"} display={"flex"}>
           <Box
             alignItems={"center"}
             display={"flex"}
@@ -62,9 +62,8 @@ export default function Rules() {
         </Container>
       </HStack>
 
-      <Stack justifyContent={"center"} alignItems={"center"}></Stack>
       <HStack justifyContent={"center"} alignItems={"center"}>
-        <Container maxW={"1100px"} display={"flex"} gap={"12"}>
+        <Container maxW={"1300px"} display={"flex"} gap={"12"}>
           <Card h={"400px"} w={"300px"} p={4}>
             CARD 1
           </Card>
