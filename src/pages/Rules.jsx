@@ -63,15 +63,39 @@ export default function Rules() {
       </HStack>
 
       <HStack justifyContent={"center"} alignItems={"center"}>
-        <Container maxW={"1300px"} display={"flex"} gap={"12"}>
-          <Card h={"400px"} w={"300px"} p={4}>
-            CARD 1
+        <Container maxW={"1300px"} display={"flex"} gap={"14"}>
+          <Card h={"550px"} w={"384px"} p={4} borderRadius={"40px"}>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              color={"#2463FF"}
+              fontSize={"8xl"}
+              textAlign={"center"}
+            >
+              01
+            </Text>
+            <Text>Choose a category</Text>
           </Card>
-          <Card h={"400px"} w={"300px"} p={4}>
-            CARD 2
+          <Card h={"550px"} w={"384px"} p={4} borderRadius={"40px"}>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              color={"#2463FF"}
+              fontSize={"8xl"}
+              textAlign={"center"}
+            >
+              02
+            </Text>
+            <Text>Guess Letters</Text>
           </Card>
-          <Card h={"400px"} w={"300px"} p={4}>
-            CARD 3
+          <Card h={"550px"} w={"384px"} p={4} borderRadius={"40px"}>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              color={"#2463FF"}
+              fontSize={"8xl"}
+              textAlign={"center"}
+            >
+              03
+            </Text>
+            <Text>Win or Lose</Text>
           </Card>
         </Container>
       </HStack>
