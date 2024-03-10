@@ -74,6 +74,11 @@ export default function Rules() {
               01
             </Text>
             <Text>Choose a category</Text>
+            <Text>
+              First, choose a word category, like animals or movies. The
+              computer then randomly selects a secret word from that topic and
+              shows you blanks for each letter of the word.
+            </Text>
           </Card>
           <Card h={"550px"} w={"384px"} p={4} borderRadius={"40px"}>
             <Text
@@ -85,6 +90,11 @@ export default function Rules() {
               02
             </Text>
             <Text>Guess Letters</Text>
+            <Text>
+              Take turns guessing letters. The computer fills in the relevant
+              blank spaces if your guess is correct. If it’s wrong, you lose
+              some health, which empties after eight incorrect guesses.
+            </Text>
           </Card>
           <Card h={"550px"} w={"384px"} p={4} borderRadius={"40px"}>
             <Text
@@ -96,6 +106,11 @@ export default function Rules() {
               03
             </Text>
             <Text>Win or Lose</Text>
+            <Text>
+              Take turns guessing letters. The computer fills in the relevant
+              blank spaces if your guess is correct. If it’s wrong, you lose
+              some health, which empties after eight incorrect guesses.
+            </Text>
           </Card>
         </Container>
       </HStack>
