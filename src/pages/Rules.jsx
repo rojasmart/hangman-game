@@ -64,7 +64,14 @@ export default function Rules() {
 
       <HStack justifyContent={"center"} alignItems={"center"}>
         <Container maxW={"1300px"} display={"flex"} gap={"14"}>
-          <Card h={"550px"} w={"384px"} p={4} borderRadius={"40px"}>
+          <Card
+            h={"550px"}
+            w={"384px"}
+            p={4}
+            borderRadius={"40px"}
+            justifyContent={"center"}
+            gap={4}
+          >
             <Text
               fontFamily={"Mouse Memoirs"}
               color={"#2463FF"}
@@ -73,8 +80,21 @@ export default function Rules() {
             >
               01
             </Text>
-            <Text>Choose a category</Text>
-            <Text>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              fontSize={"5xl"}
+              textTransform={"uppercase"}
+              textAlign={"center"}
+              color={"var(--dark-navy)"}
+            >
+              Choose a category
+            </Text>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              fontSize={"3xl"}
+              textAlign={"center"}
+              color={"#887DC0"}
+            >
               First, choose a word category, like animals or movies. The
               computer then randomly selects a secret word from that topic and
               shows you blanks for each letter of the word.
@@ -89,8 +109,21 @@ export default function Rules() {
             >
               02
             </Text>
-            <Text>Guess Letters</Text>
-            <Text>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              fontSize={"5xl"}
+              textTransform={"uppercase"}
+              textAlign={"center"}
+              color={"var(--dark-navy)"}
+            >
+              Guess Letters
+            </Text>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              fontSize={"3xl"}
+              textAlign={"center"}
+              color={"#887DC0"}
+            >
               Take turns guessing letters. The computer fills in the relevant
               blank spaces if your guess is correct. If it’s wrong, you lose
               some health, which empties after eight incorrect guesses.
@@ -105,11 +138,24 @@ export default function Rules() {
             >
               03
             </Text>
-            <Text>Win or Lose</Text>
-            <Text>
-              Take turns guessing letters. The computer fills in the relevant
-              blank spaces if your guess is correct. If it’s wrong, you lose
-              some health, which empties after eight incorrect guesses.
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              fontSize={"5xl"}
+              textTransform={"uppercase"}
+              textAlign={"center"}
+              color={"var(--dark-navy)"}
+            >
+              Win or Lose
+            </Text>
+            <Text
+              fontFamily={"Mouse Memoirs"}
+              fontSize={"3xl"}
+              textAlign={"center"}
+              color={"#887DC0"}
+            >
+              You win by guessing all the letters in the word before your health
+              runs out. If the health bar empties before you guess the word, you
+              lose.
             </Text>
           </Card>
         </Container>
