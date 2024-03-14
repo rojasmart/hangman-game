@@ -1,7 +1,6 @@
 import {
   Card,
   HStack,
-  Stack,
   Image,
   Link,
   Box,
@@ -85,6 +84,7 @@ export default function Game() {
                 borderRadius: "40px",
                 textAlign: "center",
               }}
+              onClick={() => navigate(`/game/${categoryName}`)}
             >
               <Text
                 fontFamily={"Mouse Memoirs"}
