@@ -5,12 +5,18 @@ import { getCategory } from "../services/game";
 const CategoryPage = () => {
   const { categoryName } = useParams();
   const [categoryData, setCategoryData] = useState(null);
-
-  console.log("categoryData", categoryData);
+  const [randomItem, setRandomItem] = useState(null);
 
   useEffect(() => {
-    getCategory(categoryName).then((data) => setCategoryData(data));
+    getCategory(categoryName).then((data) => {
+      setCategoryData(data);
+      const randomIndex = Math.floor(Math.random() * data.length);
+      setRandomItem(data[randomIndex]);
+    });
   }, [categoryName]);
+
+  console.log("categoryData", categoryData);
+  console.log("randomItem", randomItem);
 
   return (
     <div>
