@@ -9,7 +9,7 @@ const CategoryPage = () => {
   const [categoryData, setCategoryData] = useState(null);
   const [randomItem, setRandomItem] = useState(null);
 
-  const [clickedLetter, setClickedLetter] = useState(null);
+  const [clickedLetters, setClickedLetters] = useState([]);
 
   useEffect(() => {
     getCategory(categoryName).then((data) => {
@@ -58,7 +58,7 @@ const CategoryPage = () => {
               >
                 <Text
                   color={
-                    letter.trim() !== "" && letter === clickedLetter
+                    letter.trim() !== "" && clickedLetters.includes(letter)
                       ? "white"
                       : "transparent"
                   }
@@ -82,7 +82,9 @@ const CategoryPage = () => {
               display={"flex"}
               justifyContent={"space-around"}
               alignItems={"center"}
-              onClick={() => setClickedLetter(letter)}
+              onClick={() =>
+                setClickedLetters((prevLetters) => [...prevLetters, letter])
+              }
               cursor={"pointer"}
             >
               <Text
