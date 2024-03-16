@@ -9,6 +9,8 @@ const CategoryPage = () => {
   const [categoryData, setCategoryData] = useState(null);
   const [randomItem, setRandomItem] = useState(null);
 
+  const [clickedLetter, setClickedLetter] = useState(null);
+
   useEffect(() => {
     getCategory(categoryName).then((data) => {
       setCategoryData(data);
@@ -30,34 +32,43 @@ const CategoryPage = () => {
         <h1>Category Page</h1>
         <p>{categoryName}</p>
         <HStack>
-          {randomItem?.name.split("").map((letter, index) => (
-            <Box
-              w={"112px"}
-              h={"128px"}
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              backgroundColor={letter.trim() !== "" ? "#2463FF" : "transparent"}
-              borderRadius={"40px"}
-              boxShadow={
-                letter.trim() !== ""
-                  ? "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF"
-                  : "transparent"
-              }
-              key={index}
-              border="1px"
-              borderColor={letter.trim() !== "" ? "gray.200" : "transparent"}
-              p={2}
-            >
-              <Text
-                color={letter.trim() !== "" ? "white" : "transparent"}
-                fontSize={"6xl"}
-                fontFamily={"Mouse Memoirs"}
+          {randomItem?.name
+            .toUpperCase()
+            .split("")
+            .map((letter, index) => (
+              <Box
+                w={"112px"}
+                h={"128px"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                backgroundColor={
+                  letter.trim() !== "" ? "#2463FF" : "transparent"
+                }
+                borderRadius={"40px"}
+                boxShadow={
+                  letter.trim() !== ""
+                    ? "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF"
+                    : "transparent"
+                }
+                key={index}
+                border="1px"
+                borderColor={letter.trim() !== "" ? "gray.200" : "transparent"}
+                p={2}
               >
-                {letter.trim() !== "" ? letter : "-"}
-              </Text>
-            </Box>
-          ))}
+                <Text
+                  color={
+                    letter.trim() !== "" && letter === clickedLetter
+                      ? "white"
+                      : "transparent"
+                  }
+                  fontSize={"6xl"}
+                  fontFamily={"Mouse Memoirs"}
+                >
+                  {letter.trim() !== "" ? letter : "-"}
+                </Text>
+              </Box>
+            ))}
         </HStack>
 
         <HStack flexWrap={"wrap"} mt={12}>
@@ -71,6 +82,8 @@ const CategoryPage = () => {
               display={"flex"}
               justifyContent={"space-around"}
               alignItems={"center"}
+              onClick={() => setClickedLetter(letter)}
+              cursor={"pointer"}
             >
               <Text
                 fontSize={"3xl"}
