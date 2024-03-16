@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCategory } from "../services/game";
 
-import { Text, HStack, Box } from "@chakra-ui/react";
+import { Container, Text, HStack, Box } from "@chakra-ui/react";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -25,34 +25,65 @@ const CategoryPage = () => {
   console.log("randomItem", randomItem);
 
   return (
-    <div>
-      <h1>Category Page</h1>
-      <p>{categoryName}</p>
-      <Text fontSize={"2xl"}>{randomItem?.name}</Text>
-
-      <HStack flexWrap={"wrap"}>
-        {alphabet.map((letter, index) => (
-          <Box
-            key={index}
-            backgroundColor={"white"}
-            borderRadius={"24px"}
-            w={"109px"}
-            h={"84px"}
-            display={"flex"}
-            justifyContent={"space-around"}
-            alignItems={"center"}
-          >
-            <Text
-              fontSize={"3xl"}
-              fontFamily={"Mouse Memoirs"}
-              colorScheme={"var(--dark-navy)"}
+    <HStack m={"10"}>
+      <Container maxW="1300px">
+        <h1>Category Page</h1>
+        <p>{categoryName}</p>
+        <HStack>
+          {randomItem?.name.split("").map((letter, index) => (
+            <Box
+              w={"112px"}
+              h={"128px"}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              backgroundColor={letter.trim() !== "" ? "#2463FF" : "transparent"}
+              borderRadius={"40px"}
+              boxShadow={
+                letter.trim() !== ""
+                  ? "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF"
+                  : "transparent"
+              }
+              key={index}
+              border="1px"
+              borderColor={letter.trim() !== "" ? "gray.200" : "transparent"}
+              p={2}
             >
-              {letter}
-            </Text>
-          </Box>
-        ))}
-      </HStack>
-    </div>
+              <Text
+                color={letter.trim() !== "" ? "white" : "transparent"}
+                fontSize={"6xl"}
+                fontFamily={"Mouse Memoirs"}
+              >
+                {letter.trim() !== "" ? letter : "-"}
+              </Text>
+            </Box>
+          ))}
+        </HStack>
+
+        <HStack flexWrap={"wrap"} mt={12}>
+          {alphabet.map((letter, index) => (
+            <Box
+              key={index}
+              backgroundColor={"white"}
+              borderRadius={"24px"}
+              w={"109px"}
+              h={"84px"}
+              display={"flex"}
+              justifyContent={"space-around"}
+              alignItems={"center"}
+            >
+              <Text
+                fontSize={"3xl"}
+                fontFamily={"Mouse Memoirs"}
+                colorScheme={"var(--dark-navy)"}
+              >
+                {letter}
+              </Text>
+            </Box>
+          ))}
+        </HStack>
+      </Container>
+    </HStack>
   );
 };
 
