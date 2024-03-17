@@ -124,6 +124,7 @@ const CategoryPage = () => {
                 setClickedLetters((prevLetters) => [...prevLetters, letter])
               }
               cursor={"pointer"}
+              opacity={clickedLetters.includes(letter) ? 0.5 : 1}
             >
               <Text
                 fontSize={"3xl"}
