@@ -29,8 +29,24 @@ const CategoryPage = () => {
   return (
     <HStack m={"10"}>
       <Container maxW="1300px">
-        <h1>Category Page</h1>
-        <p>{categoryName}</p>
+        <HStack justifyContent={"space-between"}>
+          <Box>
+            <Text>MENU</Text>
+            <Text fontSize={"7xl"} color={"white"} fontFamily={"Mouse Memoirs"}>
+              {categoryName}
+            </Text>
+          </Box>
+          <Box>
+            <HStack gap={8}>
+              <Text fontSize={"3xl"} color={"white"}>
+                SCORE
+              </Text>
+              <Text fontSize={"3xl"} color={"white"}>
+                Heart
+              </Text>
+            </HStack>
+          </Box>
+        </HStack>
         <HStack>
           {randomItem?.name
             .toUpperCase()
