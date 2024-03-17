@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCategory } from "../services/game";
 
-import { Container, Text, HStack, Box } from "@chakra-ui/react";
+import { Container, Text, HStack, Box, Image } from "@chakra-ui/react";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -31,19 +31,41 @@ const CategoryPage = () => {
       <Container maxW="1300px">
         <HStack justifyContent={"space-between"}>
           <Box>
-            <Text>MENU</Text>
-            <Text fontSize={"7xl"} color={"white"} fontFamily={"Mouse Memoirs"}>
-              {categoryName}
-            </Text>
+            <HStack>
+              <Box
+                w={"94px"}
+                h={"94px"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                sx={{
+                  background:
+                    "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
+                  boxShadow: "inset 0px -6px 0px 7px rgba(157, 45, 245, 0.25)",
+                  borderRadius: "999px",
+                }}
+              >
+                <Image src={"/public/images/icon-menu.svg"} />
+              </Box>
+              <Text
+                fontSize={"7xl"}
+                color={"white"}
+                fontFamily={"Mouse Memoirs"}
+              >
+                {categoryName}
+              </Text>
+            </HStack>
           </Box>
           <Box>
             <HStack gap={8}>
               <Text fontSize={"3xl"} color={"white"}>
                 SCORE
               </Text>
-              <Text fontSize={"3xl"} color={"white"}>
-                Heart
-              </Text>
+              <Image
+                src={"/public/images/icon-heart.svg"}
+                w={"50px"}
+                ml={"25px"}
+              />
             </HStack>
           </Box>
         </HStack>
