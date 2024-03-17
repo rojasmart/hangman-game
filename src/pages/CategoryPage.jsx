@@ -76,8 +76,15 @@ const CategoryPage = () => {
             <HStack gap={8}>
               <Progress
                 value={(progress / 8) * 100}
-                w={"100px"}
+                background={"white"}
+                sx={{
+                  backgroundColor: "white",
+                  padding: "3px",
+                  height: "20px",
+                }}
+                w={"200px"}
                 borderRadius={"20px"}
+                colorScheme="customColor"
               />
 
               <Image
