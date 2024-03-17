@@ -2,14 +2,33 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCategory } from "../services/game";
 
-import { Container, Text, HStack, Box, Image } from "@chakra-ui/react";
+import {
+  Container,
+  Text,
+  HStack,
+  Box,
+  Image,
+  Progress,
+} from "@chakra-ui/react";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
   const [categoryData, setCategoryData] = useState(null);
   const [randomItem, setRandomItem] = useState(null);
 
+  const [progress, setProgress] = useState(8);
+
   const [clickedLetters, setClickedLetters] = useState([]);
+
+  const handleLetterClick = (letter) => {
+    if (!clickedLetters.includes(letter)) {
+      setClickedLetters((prevLetters) => [...prevLetters, letter]);
+
+      if (!randomItem?.name.toUpperCase().includes(letter) && progress > 0) {
+        setProgress(progress - 1);
+      }
+    }
+  };
 
   useEffect(() => {
     getCategory(categoryName).then((data) => {
@@ -22,9 +41,6 @@ const CategoryPage = () => {
   }, [categoryName]);
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-  console.log("categoryData", categoryData);
-  console.log("randomItem", randomItem);
 
   return (
     <HStack m={"10"}>
@@ -58,9 +74,12 @@ const CategoryPage = () => {
           </Box>
           <Box>
             <HStack gap={8}>
-              <Text fontSize={"3xl"} color={"white"}>
-                SCORE
-              </Text>
+              <Progress
+                value={(progress / 8) * 100}
+                w={"100px"}
+                borderRadius={"20px"}
+              />
+
               <Image
                 src={"/public/images/icon-heart.svg"}
                 w={"50px"}
@@ -69,6 +88,7 @@ const CategoryPage = () => {
             </HStack>
           </Box>
         </HStack>
+
         <HStack>
           {randomItem?.name
             .toUpperCase()
@@ -120,10 +140,10 @@ const CategoryPage = () => {
               display={"flex"}
               justifyContent={"space-around"}
               alignItems={"center"}
-              onClick={() =>
-                setClickedLetters((prevLetters) => [...prevLetters, letter])
+              onClick={() => handleLetterClick(letter)}
+              cursor={
+                clickedLetters.includes(letter) ? "not-allowed" : "pointer"
               }
-              cursor={"pointer"}
               opacity={clickedLetters.includes(letter) ? 0.5 : 1}
             >
               <Text
