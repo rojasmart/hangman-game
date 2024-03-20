@@ -97,9 +97,57 @@ const CategoryPage = () => {
             alignItems={"center"}
           >
             <VStack>
-              <Button>Play Again</Button>
-              <Button>New Category</Button>
-              <Button>Quit Game</Button>
+              <Button
+                sx={{
+                  background: "#2463FF",
+                  boxShadow:
+                    "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF",
+                  borderRadius: "40px",
+                  width: "251px",
+                  height: "62px",
+                  fontSize: "32px",
+                  fontWeight: "400",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                  color: "white",
+                }}
+              >
+                Play Again
+              </Button>
+              <Button
+                sx={{
+                  background: "#2463FF",
+                  boxShadow:
+                    "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF",
+                  borderRadius: "40px",
+                  width: "251px",
+                  height: "62px",
+                  fontSize: "32px",
+                  fontWeight: "400",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                  color: "white",
+                }}
+              >
+                New Category
+              </Button>
+              <Button
+                sx={{
+                  background: "#2463FF",
+                  boxShadow:
+                    "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF",
+                  borderRadius: "40px",
+                  width: "251px",
+                  height: "62px",
+                  fontSize: "32px",
+                  fontWeight: "400",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                  color: "white",
+                }}
+              >
+                Quit Game
+              </Button>
             </VStack>
           </ModalBody>
         </ModalContent>
