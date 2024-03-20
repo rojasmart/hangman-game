@@ -65,6 +65,8 @@ const CategoryPage = () => {
       >
         <ModalOverlay />
         <ModalContent
+          w={"592px"}
+          h={"445px"}
           sx={{
             background:
               "linear-gradient(180deg, #344ABA 0%, rgba(0, 20, 121, 0.83) 100%)",
@@ -89,7 +91,11 @@ const CategoryPage = () => {
             You Loose
           </Text>
 
-          <ModalBody>
+          <ModalBody
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
             <VStack>
               <Button>Play Again</Button>
               <Button>New Category</Button>
