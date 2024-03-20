@@ -83,7 +83,13 @@ const CategoryPage = () => {
               top: "-111px",
               left: "31px",
               letterSpacing: "-0.005em",
-              color: "linear-gradient(180deg, #67B6FF 16.42%, #FFFFFF 100%)",
+              backgroundColor: "#67B6FF",
+              backgroundImage:
+                "linear-gradient(180deg, #67B6FF 16.42%, #FFFFFF 100%)",
+              backgroundSize: "100%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+
               border: "border: 8px solid #243041",
               "-webkit-text-stroke": "5px black",
             }}
