@@ -12,8 +12,7 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalCloseButton,
+  Flex,
   ModalBody,
   VStack,
   Button,
@@ -212,7 +211,7 @@ const CategoryPage = () => {
             </Box>
           </HStack>
 
-          <HStack justifyContent={"center"}>
+          <Flex justifyContent={"center"} pt={20} pb={20} flexWrap="wrap">
             {randomItem?.name
               .toUpperCase()
               .split("")
@@ -238,6 +237,7 @@ const CategoryPage = () => {
                     letter.trim() !== "" ? "gray.200" : "transparent"
                   }
                   p={2}
+                  marginRight={letter.trim() === "" ? "100%" : "0"}
                 >
                   <Text
                     color={
@@ -252,7 +252,7 @@ const CategoryPage = () => {
                   </Text>
                 </Box>
               ))}
-          </HStack>
+          </Flex>
 
           <HStack flexWrap={"wrap"} mt={12}>
             {alphabet.map((letter, index) => (
