@@ -214,7 +214,14 @@ const CategoryPage = () => {
             </Box>
           </HStack>
 
-          <Flex justifyContent={"center"} pt={20} pb={20} gap={4}>
+          <Flex
+            justifyContent={"center"}
+            pt={20}
+            pb={20}
+            gap={6}
+            flexWrap={"wrap"}
+            className="hello"
+          >
             {randomItem?.name
               .toUpperCase()
               .split("")
