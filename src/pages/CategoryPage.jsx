@@ -212,7 +212,7 @@ const CategoryPage = () => {
             </Box>
           </HStack>
 
-          <HStack>
+          <HStack justifyContent={"center"}>
             {randomItem?.name
               .toUpperCase()
               .split("")

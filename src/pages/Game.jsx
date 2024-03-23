@@ -77,6 +77,8 @@ export default function Game() {
               p={["12px", "64px"]}
               w={"384px"}
               h={"190px"}
+              fontFamily={"Mouse Memoirs"}
+              cursor={"pointer"}
               sx={{
                 background: "#2463FF",
                 boxShadow:
