@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getCategory } from "../services/game";
 
 import {
@@ -31,6 +31,8 @@ const CategoryPage = () => {
 
   const [clickedLetters, setClickedLetters] = useState([]);
 
+  const navigate = useNavigate();
+
   const handleLetterClick = (letter) => {
     if (!clickedLetters.includes(letter)) {
       setClickedLetters((prevLetters) => [...prevLetters, letter]);
@@ -56,6 +58,10 @@ const CategoryPage = () => {
   }, [categoryName]);
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+  const handleQuit = () => {
+    navigate("/");
+  };
 
   return (
     <>
@@ -152,6 +158,7 @@ const CategoryPage = () => {
                   textTransform: "uppercase",
                   color: "white",
                 }}
+                onClick={() => handleQuit()}
               >
                 Quit Game
               </Button>
@@ -177,6 +184,8 @@ const CategoryPage = () => {
                       "inset 0px -6px 0px 7px rgba(157, 45, 245, 0.25)",
                     borderRadius: "999px",
                   }}
+                  onClick={() => setIsModalOpen(true)}
+                  cursor={"pointer"}
                 >
                   <Image src={"/public/images/icon-menu.svg"} />
                 </Box>
@@ -216,11 +225,10 @@ const CategoryPage = () => {
 
           <Flex
             justifyContent={"center"}
-            pt={20}
-            pb={20}
+            pt={10}
+            pb={10}
             gap={6}
             flexWrap={"wrap"}
-            className="hello"
           >
             {randomItem?.name
               .toUpperCase()
