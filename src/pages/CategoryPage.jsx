@@ -23,6 +23,8 @@ const CategoryPage = () => {
   const [categoryData, setCategoryData] = useState(null);
   const [randomItem, setRandomItem] = useState(null);
 
+  const [lineBreaks, setLineBreaks] = useState(0);
+
   const [progress, setProgress] = useState(8);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -179,6 +181,7 @@ const CategoryPage = () => {
                   <Image src={"/public/images/icon-menu.svg"} />
                 </Box>
                 <Text
+                  ml={12}
                   fontSize={"7xl"}
                   color={"white"}
                   fontFamily={"Mouse Memoirs"}
@@ -211,56 +214,56 @@ const CategoryPage = () => {
             </Box>
           </HStack>
 
-          <Flex
-            justifyContent={"center"}
-            gap={4}
-            pt={20}
-            pb={20}
-            flexWrap="wrap"
-          >
+          <Flex justifyContent={"center"} pt={20} pb={20} gap={4}>
             {randomItem?.name
               .toUpperCase()
               .split("")
-              .map((letter, index) => (
-                <Box
-                  w={"112px"}
-                  h={"128px"}
-                  display={"flex"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  backgroundColor={
-                    letter.trim() !== "" ? "#2463FF" : "transparent"
-                  }
-                  borderRadius={"40px"}
-                  boxShadow={
-                    letter.trim() !== ""
-                      ? "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF"
-                      : "transparent"
-                  }
-                  key={index}
-                  border="1px"
-                  borderColor={
-                    letter.trim() !== "" ? "gray.200" : "transparent"
-                  }
-                  p={2}
-                  marginRight={letter.trim() === "" ? "100%" : "0"}
-                >
-                  <Text
-                    color={
-                      letter.trim() !== "" && clickedLetters.includes(letter)
-                        ? "white"
+              .map((letter, index) => {
+                if (letter.trim() === "" && lineBreaks < 2) {
+                  setLineBreaks(lineBreaks + 1);
+                  return <Box w={"100%"} key={index} />;
+                }
+
+                return (
+                  <Box
+                    w={"112px"}
+                    h={"128px"}
+                    display={"flex"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    backgroundColor={
+                      letter.trim() !== "" ? "#2463FF" : "transparent"
+                    }
+                    borderRadius={"40px"}
+                    boxShadow={
+                      letter.trim() !== ""
+                        ? "inset 0px -2px 0px 3px #140E66, inset 0px 1px 0px 6px #3C74FF"
                         : "transparent"
                     }
-                    fontSize={"6xl"}
-                    fontFamily={"Mouse Memoirs"}
+                    key={index}
+                    border="1px"
+                    borderColor={
+                      letter.trim() !== "" ? "gray.200" : "transparent"
+                    }
+                    p={2}
                   >
-                    {letter.trim() !== "" ? letter : "-"}
-                  </Text>
-                </Box>
-              ))}
+                    <Text
+                      color={
+                        letter.trim() !== "" && clickedLetters.includes(letter)
+                          ? "white"
+                          : "transparent"
+                      }
+                      fontSize={"6xl"}
+                      fontFamily={"Mouse Memoirs"}
+                    >
+                      {letter.trim() !== "" ? letter : "-"}
+                    </Text>
+                  </Box>
+                );
+              })}
           </Flex>
 
-          <HStack flexWrap={"wrap"} mt={12}>
+          <HStack flexWrap={"wrap"} mt={12} gap={6}>
             {alphabet.map((letter, index) => (
               <Box
                 key={index}
