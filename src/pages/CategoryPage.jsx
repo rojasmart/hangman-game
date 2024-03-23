@@ -35,7 +35,21 @@ const CategoryPage = () => {
 
   const handleLetterClick = (letter) => {
     if (!clickedLetters.includes(letter)) {
-      setClickedLetters((prevLetters) => [...prevLetters, letter]);
+      setClickedLetters((prevLetters) => {
+        const updatedLetters = [...prevLetters, letter];
+
+        const allCorrectLettersClicked = randomItem?.name
+          .toUpperCase()
+          .split("")
+          .filter((l) => l.trim() !== "") // exclude spaces
+          .every((letter) => updatedLetters.includes(letter));
+
+        if (allCorrectLettersClicked) {
+          setIsModalOpen(true);
+        }
+
+        return updatedLetters;
+      });
 
       if (!randomItem?.name.toUpperCase().includes(letter) && progress > 0) {
         setProgress(progress - 1);
@@ -61,6 +75,18 @@ const CategoryPage = () => {
 
   const handleQuit = () => {
     navigate("/");
+  };
+
+  const handleCategoryChange = () => {
+    navigate("/game");
+  };
+
+  const handlePlayAgain = () => {
+    setClickedLetters([]);
+    setProgress(8);
+    setIsModalOpen(false);
+    const randomIndex = Math.floor(Math.random() * categoryData.length);
+    setRandomItem(categoryData[randomIndex]);
   };
 
   return (
@@ -109,7 +135,7 @@ const CategoryPage = () => {
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <VStack>
+            <VStack gap={6}>
               <Button
                 sx={{
                   background: "#2463FF",
@@ -124,6 +150,7 @@ const CategoryPage = () => {
                   textTransform: "uppercase",
                   color: "white",
                 }}
+                onClick={() => handlePlayAgain()}
               >
                 Play Again
               </Button>
@@ -141,6 +168,7 @@ const CategoryPage = () => {
                   textTransform: "uppercase",
                   color: "white",
                 }}
+                onClick={() => handleCategoryChange()}
               >
                 New Category
               </Button>
