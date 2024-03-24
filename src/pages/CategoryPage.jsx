@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCategory } from "../services/game";
 
@@ -37,37 +37,43 @@ const CategoryPage = () => {
 
   const navigate = useNavigate();
 
-  const handleLetterClick = (letter) => {
-    if (!clickedLetters.includes(letter)) {
-      setClickedLetters((prevLetters) => {
-        const updatedLetters = [...prevLetters, letter];
+  const handleLetterClick = useCallback(
+    (letter) => {
+      if (!clickedLetters.includes(letter)) {
+        setClickedLetters((prevLetters) => {
+          const updatedLetters = [...prevLetters, letter];
 
-        const allCorrectLettersClicked = randomItem?.name
-          .toUpperCase()
-          .split("")
-          .filter((l) => l.trim() !== "") // exclude spaces
-          .every((letter) => updatedLetters.includes(letter));
+          const allCorrectLettersClicked = randomItem?.name
+            .toUpperCase()
+            .split("")
+            .filter((l) => l.trim() !== "") // exclude spaces
+            .every((letter) => updatedLetters.includes(letter));
 
-        if (allCorrectLettersClicked) {
-          setIsModalOpen(true);
-          setIsMenu(false);
-          setIsWin(true);
+          if (allCorrectLettersClicked) {
+            setIsModalOpen(true);
+            setIsMenu(false);
+            setIsWin(true);
+          }
+
+          return updatedLetters;
+        });
+
+        if (!randomItem?.name.toUpperCase().includes(letter) && progress > 0) {
+          setProgress(progress - 1);
         }
 
-        return updatedLetters;
-      });
-
-      if (!randomItem?.name.toUpperCase().includes(letter) && progress > 0) {
-        setProgress(progress - 1);
+        if (
+          progress === 1 &&
+          !randomItem?.name.toUpperCase().includes(letter)
+        ) {
+          setIsModalOpen(true);
+          setIsMenu(false);
+          setIsWin(false);
+        }
       }
-
-      if (progress === 1 && !randomItem?.name.toUpperCase().includes(letter)) {
-        setIsModalOpen(true);
-        setIsMenu(false);
-        setIsWin(false);
-      }
-    }
-  };
+    },
+    [clickedLetters, progress, randomItem]
+  );
 
   useEffect(() => {
     getCategory(categoryName).then((data) => {
