@@ -150,6 +150,12 @@ const CategoryPage = () => {
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
                   color: "white",
+                  _hover: {
+                    background:
+                      "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
+                    boxShadow:
+                      "inset 0px -4px 0px 5px #243041, inset 0px -12px 0px 11px #9D2DF5",
+                  },
                 }}
                 onClick={() => handlePlayAgain()}
               >
@@ -168,6 +174,12 @@ const CategoryPage = () => {
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
                   color: "white",
+                  _hover: {
+                    background:
+                      "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
+                    boxShadow:
+                      "inset 0px -4px 0px 5px #243041, inset 0px -12px 0px 11px #9D2DF5",
+                  },
                 }}
                 onClick={() => handleCategoryChange()}
               >
@@ -186,6 +198,12 @@ const CategoryPage = () => {
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
                   color: "white",
+                  _hover: {
+                    background:
+                      "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
+                    boxShadow:
+                      "inset 0px -4px 0px 5px #243041, inset 0px -12px 0px 11px #9D2DF5",
+                  },
                 }}
                 onClick={() => handleQuit()}
               >

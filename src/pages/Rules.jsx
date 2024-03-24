@@ -1,7 +1,6 @@
 import {
   Card,
   HStack,
-  Stack,
   Image,
   Link,
   Text,
@@ -54,7 +53,7 @@ export default function Rules() {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               textFillColor: "transparent",
-              "-webkit-text-stroke": "5px #243041",
+              "-webkit-text-stroke": "3px #243041",
             }}
           >
             How to play

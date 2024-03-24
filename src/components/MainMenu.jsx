@@ -39,6 +39,10 @@ const MainMenu = () => {
                 borderRadius: "180px",
                 position: "absolute",
                 top: "369px",
+                _hover: {
+                  flexGrow: 1,
+                  flexShrink: 1,
+                },
               }}
             >
               <Link href="/game">
@@ -62,9 +66,10 @@ const MainMenu = () => {
                   color: "var(--white)",
                   borderRadius: "40px",
                   _hover: {
-                    background: "var(--blue)",
+                    background:
+                      "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
                     boxShadow:
-                      "inset 0px -2px 0px 3px var(--blue), inset 0px 1px 0px 6px var(--dark-navy)",
+                      "inset 0px -4px 0px 5px #243041, inset 0px -12px 0px 11px #9D2DF5",
                   },
                   textTransform: "uppercase",
                   fontSize: "30px",
