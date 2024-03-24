@@ -27,6 +27,8 @@ const CategoryPage = () => {
 
   const [isWin, setIsWin] = useState(false);
 
+  const [isMenu, setIsMenu] = useState(false);
+
   const [progress, setProgress] = useState(8);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,6 +50,7 @@ const CategoryPage = () => {
 
         if (allCorrectLettersClicked) {
           setIsModalOpen(true);
+          setIsMenu(false);
           setIsWin(true);
         }
 
@@ -60,6 +63,7 @@ const CategoryPage = () => {
 
       if (progress === 1 && !randomItem?.name.toUpperCase().includes(letter)) {
         setIsModalOpen(true);
+        setIsMenu(false);
         setIsWin(false);
       }
     }
@@ -93,12 +97,18 @@ const CategoryPage = () => {
     setRandomItem(categoryData[randomIndex]);
   };
 
+  const handleClickMenu = () => {
+    setIsModalOpen(true);
+    setIsMenu(true);
+  };
+
   return (
     <>
       <Modal
         className="modal"
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        closeOnOverlayClick={isMenu}
       >
         <ModalOverlay />
         <ModalContent
@@ -125,7 +135,7 @@ const CategoryPage = () => {
               sx={{
                 position: "absolute",
                 top: "-111px",
-                left: "31px",
+
                 letterSpacing: "-0.005em",
                 backgroundColor: "#67B6FF",
                 backgroundImage:
@@ -263,7 +273,7 @@ const CategoryPage = () => {
                       },
                     },
                   }}
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => handleClickMenu()}
                   cursor={"pointer"}
                 >
                   <Image src={"/public/images/icon-menu.svg"} />
