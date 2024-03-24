@@ -14,7 +14,7 @@
 
 body {
   font-family: "Mouse Memoirs", sans-serif;
-  background: url("/public/images/background-desktop.svg") !important;
+  background: url("/images/background-desktop.svg") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;

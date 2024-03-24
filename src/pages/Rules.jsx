@@ -56,11 +56,7 @@ export default function Rules() {
                 },
               }}
             >
-              <Image
-                src={"/public/images/icon-back.svg"}
-                w={"50px"}
-                ml={"25px"}
-              />
+              <Image src={"/images/icon-back.svg"} w={"50px"} ml={"25px"} />
             </Box>
           </Link>
           <Text

@@ -282,7 +282,7 @@ const CategoryPage = () => {
                   onClick={() => handleClickMenu()}
                   cursor={"pointer"}
                 >
-                  <Image src={"/public/images/icon-menu.svg"} />
+                  <Image src={"/images/icon-menu.svg"} />
                 </Box>
                 <Text
                   ml={12}
@@ -309,11 +309,7 @@ const CategoryPage = () => {
                   colorScheme="customColor"
                 />
 
-                <Image
-                  src={"/public/images/icon-heart.svg"}
-                  w={"50px"}
-                  ml={"25px"}
-                />
+                <Image src={"/images/icon-heart.svg"} w={"50px"} ml={"25px"} />
               </HStack>
             </Box>
           </HStack>

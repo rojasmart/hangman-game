@@ -26,7 +26,7 @@ const MainMenu = () => {
             alignItems={"center"}
           >
             <Image
-              src={"/public/images/logo.svg"}
+              src={"/images/logo.svg"}
               sx={{ position: "absolute", top: "120px" }}
             />
             <Link
@@ -73,7 +73,7 @@ const MainMenu = () => {
                 }}
               >
                 <Link href="/game">
-                  <Image src={"/public/images/icon-play.svg"} />
+                  <Image src={"/images/icon-play.svg"} />
                 </Link>
               </Center>
               <Button
