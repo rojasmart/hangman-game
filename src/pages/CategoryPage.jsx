@@ -107,6 +107,7 @@ const CategoryPage = () => {
               "inset 0px -8px 0px 4px #140E66, inset 0px 6px 0px 8px #2463FF",
             borderRadius: "72px",
           }}
+          alignSelf={"center"}
         >
           <Text
             fontSize={"134px"}
