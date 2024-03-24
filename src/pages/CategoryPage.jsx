@@ -25,6 +25,8 @@ const CategoryPage = () => {
 
   const [lineBreaks, setLineBreaks] = useState(0);
 
+  const [isWin, setIsWin] = useState(false);
+
   const [progress, setProgress] = useState(8);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +48,7 @@ const CategoryPage = () => {
 
         if (allCorrectLettersClicked) {
           setIsModalOpen(true);
+          setIsWin(true);
         }
 
         return updatedLetters;
@@ -57,6 +60,7 @@ const CategoryPage = () => {
 
       if (progress === 1 && !randomItem?.name.toUpperCase().includes(letter)) {
         setIsModalOpen(true);
+        setIsWin(false);
       }
     }
   };
@@ -128,7 +132,7 @@ const CategoryPage = () => {
               "-webkit-text-stroke": "5px black",
             }}
           >
-            You Loose
+            {isWin ? "You Win" : "You Lose"}
           </Text>
 
           <ModalBody
