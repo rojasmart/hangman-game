@@ -15,12 +15,20 @@ import { useEffect, useState } from "react";
 
 export default function Game() {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getGame().then((data) => setCategories(data));
-  }, []);
+    const fetchGame = async () => {
+      try {
+        const data = await getGame();
+        setCategories(data);
+      } catch (error) {
+        console.error("Failed to fetch game data:", error);
+      }
+    };
 
-  const navigate = useNavigate();
+    fetchGame();
+  }, []);
 
   return (
     <>
