@@ -113,28 +113,34 @@ const CategoryPage = () => {
           }}
           alignSelf={"center"}
         >
-          <Text
-            fontSize={"134px"}
-            fontFamily={"Mouse Memoirs"}
-            sx={{
-              position: "absolute",
-              top: "-111px",
-              left: "31px",
-              letterSpacing: "-0.005em",
-              backgroundColor: "#67B6FF",
-              backgroundImage:
-                "linear-gradient(180deg, #67B6FF 16.42%, #FFFFFF 100%)",
-              backgroundSize: "100%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-
-              border: "border: 8px solid #243041",
-              "-webkit-text-stroke": "5px black",
-            }}
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            position="relative"
           >
-            {isWin ? "You Win" : "You Lose"}
-          </Text>
+            <Text
+              fontSize={"134px"}
+              fontFamily={"Mouse Memoirs"}
+              sx={{
+                position: "absolute",
+                top: "-111px",
+                left: "31px",
+                letterSpacing: "-0.005em",
+                backgroundColor: "#67B6FF",
+                backgroundImage:
+                  "linear-gradient(180deg, #67B6FF 16.42%, #FFFFFF 100%)",
+                backgroundSize: "100%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
 
+                border: "border: 8px solid #243041",
+                "-webkit-text-stroke": "5px black",
+              }}
+            >
+              {isWin ? "You Win" : "You Lose"}
+            </Text>
+          </Box>
           <ModalBody
             display={"flex"}
             justifyContent={"center"}
