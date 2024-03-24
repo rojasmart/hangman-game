@@ -17,29 +17,52 @@ export default function Rules() {
     <>
       <HStack m={"10"}>
         <Container maxW="1300px" justifyContent={"center"} display={"flex"}>
-          <Box
-            alignItems={"center"}
-            display={"flex"}
-            sx={{
-              boxSizing: "border-box",
-              width: "94px",
-              height: "94px",
-              left: "0px",
-              top: "0px",
-              background:
-                "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
-              boxShadow: "inset 0px -6px 0px 7px rgba(157, 45, 245, 0.25)",
-              borderRadius: "999px",
-            }}
-          >
-            <Link onClick={() => navigate(-1)} mr={"auto"}>
+          <Link onClick={() => navigate(-1)} mr={"auto"}>
+            <Box
+              alignItems={"center"}
+              display={"flex"}
+              sx={{
+                boxSizing: "border-box",
+                width: "94px",
+                height: "94px",
+                left: "0px",
+                top: "0px",
+                background:
+                  "linear-gradient(180deg, #FE71FE 16.42%, #7199FF 100%)",
+                boxShadow: "inset 0px -6px 0px 7px rgba(157, 45, 245, 0.25)",
+                borderRadius: "999px",
+                _hover: {
+                  background:
+                    "linear-gradient(180deg, #fdb0fd 16.42%, #ccd8f6 100%)",
+
+                  animation: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
+                  transform: "translate3d(0, 0, 0)",
+                  backfaceVisibility: "hidden",
+                  perspective: "1000px",
+                  "@keyframes shake": {
+                    "10%, 90%": {
+                      transform: "translate3d(-1px, 0, 0)",
+                    },
+                    "20%, 80%": {
+                      transform: "translate3d(2px, 0, 0)",
+                    },
+                    "30%, 50%, 70%": {
+                      transform: "translate3d(-4px, 0, 0)",
+                    },
+                    "40%, 60%": {
+                      transform: "translate3d(4px, 0, 0)",
+                    },
+                  },
+                },
+              }}
+            >
               <Image
                 src={"/public/images/icon-back.svg"}
                 w={"50px"}
                 ml={"25px"}
               />
-            </Link>
-          </Box>
+            </Box>
+          </Link>
           <Text
             fontSize={"106px"}
             textAlign={"center"}
