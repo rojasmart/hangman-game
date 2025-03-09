@@ -1,5 +1,4 @@
-# Frontend Mentor - Hangman game solution
-
-This is a solution to the [Hangman game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/hangman-game-rsQiSVLGWn).
+# Hangman Game Solution
+![image](https://github.com/user-attachments/assets/62459e75-65fc-4cc8-97d6-419b16b52a1f)
 
 Created with React + VITE + ChakraUI + React Router
